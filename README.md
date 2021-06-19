@@ -1,2 +1,1 @@
-
-##Criação de uma aplicação API flask RESTful para manipulação de registro de banco de dados sqlachemy. 
+Criação de uma aplicação API flask RESTful para manipulação de registros de banco de dados sqlachemy. 
