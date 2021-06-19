@@ -26,6 +26,4 @@ def delete_person(nome):
 
 # Aqui crio a condição que possibilitará executar meu arquivo apenas no código fonte.
 if __name__ == "__main__":
-    #insert_people()
-    delete_person("Elias")
-    query()
+    insert_people()
