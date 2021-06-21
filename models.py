@@ -39,6 +39,7 @@ class Activities(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(80))
     person_id = Column(Integer, ForeignKey("people.id"))# aqui eu referecio essa coluna à da classe "People", através de uma chave estrangeira.
+    status = Column(String(30))
     person = relationship("People")# aqui explicito a relação da tabela 'People' com  a 'Activities, atribuindo como argumento o nome da classe.
     def __repr__(self):
             return f"<Activities {self.name}>"
@@ -47,6 +48,23 @@ class Activities(Base):
         db_session.add(self)
         db_session.commit()
     # aqui eu acesso minha sessão e deleto o arquivo desejado e finalizo com um commit.
+    def delete(self):
+        db_session.delete(self)
+        db_session.commit()
+
+class Users(Base):
+    __tablename__ = "users"
+    id = Column(Integer, primary_key=True)
+    username = Column(String(50), unique=True)
+    password = Column(String(50))
+
+    def __repr__(self):
+        return f"<User {self.username}"
+
+    def save(self):
+        db_session.add(self)
+        db_session.commit()
+
     def delete(self):
         db_session.delete(self)
         db_session.commit()

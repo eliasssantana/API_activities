@@ -1,5 +1,5 @@
 # Aqui importo o módulo models e sua classe 'People' para realizar manipulações na mesma.
-from models import People
+from models import People, Users
 # Aqui crio uma função que insere novos registros na minha tabela 'activities'.
 def insert_people():
     person = People(name="Ana", age=18)
@@ -24,6 +24,16 @@ def delete_person(nome):
     # aqui utilizo o método 'delete()' que deleta meu registra na sessão atual e salva(commit).
     person.delete()
 
+def insert_user(username, password):
+    user = Users(username=username, password=password)
+    user.save()
+
+def query_all_users():
+    users = Users.query.all()
+    print(users)
+    return users
+
 # Aqui crio a condição que possibilitará executar meu arquivo apenas no código fonte.
 if __name__ == "__main__":
-    insert_people()
+    insert_user("carlos","8937")
+    query_all_users()
